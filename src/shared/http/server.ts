@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import routes from './routes';
@@ -10,6 +11,7 @@ app.use(express.json());
 
 app.use(routes);
 
+//verificação de retorno de erro
 app.use(
   (error: Error, request: Request, response: Response, next: NextFunction) => {
     //Verifica se é um erro gerado pela aplicação verificando se o erro é uma instancia da classe AppError, caso não seja, retorna erro 500
